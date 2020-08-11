@@ -1,10 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { dummyService } from "./dummyService";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
+import { pokemonService } from "./pokemonService";
 
-export const fetchApiResponse = createAsyncThunk(
-    "dummy/fetchApiResponse",
-    async () => {
-        const response = await dummyService.getPikachu();
-        return { apiResponse: response.data };
-    }
-);
+const toggleEvolved = createAction("dummy/togglePokemon");
+
+const fetchPokemon = createAsyncThunk("dummy/fetchApiResponse", async () => {
+    const response = await pokemonService.getPokemon();
+    return { apiResponse: response.data };
+});
+
+export { toggleEvolved, fetchPokemon };

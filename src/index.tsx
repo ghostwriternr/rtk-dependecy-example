@@ -6,9 +6,6 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { store } from "./store";
-import { setupInterceptors } from "./helper/axiosHelper";
-
-setupInterceptors(store);
 
 ReactDOM.render(
     <Provider store={store}>
